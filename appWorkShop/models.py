@@ -22,7 +22,7 @@ class Profesor(models.Model):
     nombreProfe = models.CharField(max_length=100)
     
     def __str__(self):
-        return str(str.rutProfe)
+        return str(self.rutProfe)
 
 class Taller(models.Model):
     idTaller = models.AutoField(primary_key=True)
@@ -32,4 +32,4 @@ class Taller(models.Model):
     colegio = models.ManyToManyField( Colegio )
 
     def __str__(self):
-        return str(str.nombreTaller)
+        return str(self.nombreTaller)

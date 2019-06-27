@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
+    background-color: rgb(59, 71, 128);
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(224,244,255);
+    text-align: center;
+}
+
+main img{
+    display: block;
+    margin: 20px auto 0 auto;
+    max-width: 300px;
+}
+
+h2{
+    margin-top: 230px;
+}
+
+main a{
+    display: block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgb(34, 236, 61);
+    margin: 25px auto;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 18px;
+    border: solid 0.5px rgb(23, 218, 88);
+    width: 110px;
+}
+
+
+
