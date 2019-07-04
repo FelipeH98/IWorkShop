@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 
@@ -30,6 +31,7 @@ class Taller(models.Model):
     alumno = models.ManyToManyField( Alumno )
     profesor = models.ManyToManyField( Profesor )
     colegio = models.ManyToManyField( Colegio )
+    fecha = models.DateTimeField(blank=False, null=True)
 
     def __str__(self):
         return str(self.nombreTaller)

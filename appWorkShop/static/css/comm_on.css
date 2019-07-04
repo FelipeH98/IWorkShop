@@ -1,0 +1,9 @@
+/* CLASE PARA BOTON DE MENU APRETADO */
+
+#btn_comm{
+    background-color: rgb(45, 53, 95);
+}
+
+#btn_comm a{
+    color: white;
+}

@@ -1,0 +1,9 @@
+/* CLASE PARA BOTON DE MENU APRETADO */
+
+#btn_perfil{
+    background-color: rgb(45, 53, 95);
+}
+
+#btn_perfil a{
+    color: white;
+}

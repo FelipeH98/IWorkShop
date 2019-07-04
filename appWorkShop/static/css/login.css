@@ -72,3 +72,7 @@ footer a{
 .form-login label{
     display: none;
 }
+
+.form_login form ul li{
+    color: white;
+}

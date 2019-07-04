@@ -1,0 +1,9 @@
+/* CLASE PARA BOTON DE MENU APRETADO */
+
+#btn_home{
+    background-color: rgb(45, 53, 95);
+}
+
+#btn_home a{
+    color: white;
+}

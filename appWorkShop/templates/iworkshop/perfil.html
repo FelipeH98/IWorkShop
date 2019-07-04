@@ -1,0 +1,24 @@
+{% extends 'iworkshop/base_inicio.html'%}
+
+{% load static %}
+
+{% block extrastatic %}
+<link rel="stylesheet" href="{% static 'css/perfil_on.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <main class="main">
+
+      
+
+        {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
+            PERFIL ADMIN
+        {% elif user.is_authenticated and user.is_staff %} 
+         
+        {% elif user.is_authenticated %}
+
+          
+        {% endif %}
+    </main>
+{% endblock %}

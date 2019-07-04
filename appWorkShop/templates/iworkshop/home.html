@@ -1,0 +1,21 @@
+{% extends 'iworkshop/base_inicio.html'%}
+
+{% load static %}
+
+{% block extrastatic %}
+<link rel="stylesheet" href="{% static 'css/home_on.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <main class="main">
+        {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
+            HOME ADMIN
+        {% elif user.is_authenticated and user.is_staff %} 
+            HOME PROFE
+        {% elif user.is_authenticated %}
+            HOME ESTUDIANTE
+        {% endif %}
+    </main>
+{% endblock %}

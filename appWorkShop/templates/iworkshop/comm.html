@@ -1,0 +1,20 @@
+{% extends 'iworkshop/base_inicio.html'%}
+
+{% load static %}
+
+{% block extrastatic %}
+<link rel="stylesheet" href="{% static 'css/comm_on.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <main class="main">
+        {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
+            EVALUACION DE PROFES
+        {% elif user.is_authenticated and user.is_staff %} 
+            FEEDBACK DE ALUMNOS
+        {% elif user.is_authenticated %}
+            DEJAR COMENTARIO A PROFE
+        {% endif %}
+    </main>
+{% endblock %}

@@ -1,0 +1,35 @@
+
+
+#btn_buscar{
+    background-color: rgb(45, 53, 95);
+}
+
+#btn_buscar a{
+    color: white;
+}
+
+.contenedor_busc{
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#input_buscar{
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 0.5px solid  rgb(62, 75, 139);
+    padding: 8px;
+    
+}
+
+#btn_busqueda{
+    box-sizing: border-box;
+    height: 40px;
+    width: 12%;
+    color: rgb(45, 53, 95);
+    background: none;
+    border: none;
+    position: absolute;
+    top: 8px;
+    left: 85%;
+}
