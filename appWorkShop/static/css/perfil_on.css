@@ -1,4 +1,4 @@
-/* CLASE PARA BOTON DE MENU APRETADO */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 #btn_perfil{
     background-color: rgb(45, 53, 95);
@@ -6,4 +6,17 @@
 
 #btn_perfil a{
     color: white;
+}
+
+.datos-perfil{
+    background-color: rgb(51, 60, 107);
+    text-align: center;
+    padding: 15px;
+    margin: 15px 0 0 0;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.datos-perfil i{
+    font-size: 120px;
 }

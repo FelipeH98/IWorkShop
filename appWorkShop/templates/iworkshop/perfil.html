@@ -15,10 +15,31 @@
         {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
             PERFIL ADMIN
         {% elif user.is_authenticated and user.is_staff %} 
+            {% for perfil in user_profe %}
+                {% if user.username == perfil.rut %}
+                    <div class="datos-perfil">
+                        <p>Rut: {{user.username}}</p>
+                        <p>Nombre: {{perfil.nombreProfe}}</p>
+                    </div>
+                {% endif %}
+            {% endfor%}
          
         {% elif user.is_authenticated %}
 
-          
+            {% for perfil in user_alum %}
+                {% if user.username == perfil.rut %}
+                    <div class="datos-perfil">
+                        <h2>Mi perfil</h2>
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <p>Rut: {{user.username}}</p>
+                        <p>Nombre: {{perfil.nombreCompleto}}</p>
+                        <p>Colegio: {{perfil.colegio}}</p>
+                        <p>Edad: {{perfil.edad}}</p>
+                    </div>
+                {% endif %}
+            {% endfor%}
+
         {% endif %}
+
     </main>
 {% endblock %}

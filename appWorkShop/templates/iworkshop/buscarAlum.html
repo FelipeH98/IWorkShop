@@ -1,0 +1,41 @@
+{% extends 'iworkshop/base_inicio.html'%}
+
+{% load static %}
+
+{% block extrastatic %}
+<link rel="stylesheet" href="{% static 'css/buscar_on.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <main class="main">
+        {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
+            EVALUACION DE PROFES
+        {% elif user.is_authenticated and user.is_staff %} 
+            FEEDBACK DE ALUMNOS
+        {% elif user.is_authenticated %}
+            {% csrf_token %}
+            <div class="contenedor_busc">
+                <form action="results" method="GET" >
+                        <input type="text" name="q" id="input_buscar" placeholder="Ingrese taller" value="{{ query|escape }}">
+                        <button id="btn_busqueda" onclick="" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+
+            {% if talleres %}
+              {% for taller in talleres %}
+                <div class="cont-talleres">
+                    <p> <b>{{ taller|escape}}</b> </p>
+                    <button><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
+              {% endfor %}
+            {% else %}
+              <p style="text-align: center; color: white; margin-top: 40px; ">No se encontró ningún taller</p>
+            {% endif %}
+           
+           
+        {% endif %}
+
+        
+    </main>
+{% endblock %}

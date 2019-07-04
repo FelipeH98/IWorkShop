@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Profesor, Alumno
+from django.db.models import Q
+from .models import Profesor, Alumno, Taller
 from django.contrib.auth.models import User
 
 def index(request):
@@ -11,14 +12,20 @@ def login(request):
 def home(request):
     return render(request, 'iworkshop/home.html', {})
 
-def buscar(request):
-    return render(request, 'iworkshop/buscar.html', {})
+def buscarAlum(request):
+    talleres = Taller.objects.all()
+    return render(request, 'iworkshop/buscarAlum.html', {'talleres': talleres})
+
+def results(request):
+    q = request.GET.get('q','')
+    query = Q(nombreTaller__contains=q)
+    talleres = Taller.objects.filter(query)
+    return render(request, 'iworkshop/buscarAlum.html', {'talleres': talleres})
 
 def comm(request):
     return render(request, 'iworkshop/comm.html', {})
 
 def perfil(request):
-    logged = User.objects.all()
     user_alum = Alumno.objects.all()
     user_profe = Profesor.objects.all()
-    return render(request, 'iworkshop/perfil.html', {'logged': logged, 'user_alum': user_alum, 'user_profe': user_profe})
+    return render(request, 'iworkshop/perfil.html', {'user_alum': user_alum, 'user_profe': user_profe})
