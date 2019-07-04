@@ -35,6 +35,7 @@
                         <p>Nombre: {{perfil.nombreCompleto}}</p>
                         <p>Colegio: {{perfil.colegio}}</p>
                         <p>Edad: {{perfil.edad}}</p>
+                        <a class="logout" href="{% url 'logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                     </div>
                 {% endif %}
             {% endfor%}

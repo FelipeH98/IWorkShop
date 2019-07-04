@@ -20,3 +20,21 @@
 .datos-perfil i{
     font-size: 120px;
 }
+
+.logout{
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+.logout i{
+    font-size: 25px;
+}
+
+.datos-perfil a{
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: solid 0.5px rgb(14, 86, 145);
+    font-size: 18px;
+    background-color: rgb(29, 172, 255);
+    color: white;
+}
