@@ -25,8 +25,29 @@
             {% if talleres %}
               {% for taller in talleres %}
                 <div class="cont-talleres">
-                    <p> <b>{{ taller|escape}}</b> </p>
-                    <button><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    
+                    <form action="tomarTaller" method="POST">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td style="text-align: center"><b>Taller</b></td>
+                                <td style="text-align: center"><b>Dia</b></td>
+                                <td style="text-align: center"><b>Hora</b></td>
+                                <td style="text-align: center"><b>Duracion</b></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center">{{ taller}}</td>
+                                <td style="text-align: center">{{taller.fecha}}</td>
+                                <td style="text-align: center">{{taller.hora_comienzo}}</td>
+                                <td style="text-align: center">{{taller.duracion_total}}</td>
+                            </tr>
+                            <input type="text" name="pk" id="pk" value="{{taller.idTaller}}" style="display:none;">
+                            <input type="text" name="alumno" id="alumnos" value="{{user.username}}" style="display:none;">
+                            <button type="submit"><i class="fa fa-plus" aria-hidden="true" class="btn_tomar"></i></button>
+                            <input type="text" style="display:none;">
+                        </table>
+                    </form>
+                    
                 </div>
               {% endfor %}
             {% else %}

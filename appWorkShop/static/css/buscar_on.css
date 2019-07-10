@@ -7,6 +7,10 @@
 #btn_buscar a{
     color: white;
 }
+
+.btn_tomar{
+    display: inline-block;
+}
 .cont-talleres{
     width: 100%;
     height: 80px;
@@ -56,4 +60,7 @@
     position: absolute;
     top: 8px;
     left: 85%;
+}
+.main{
+    padding-bottom: 55px;
 }

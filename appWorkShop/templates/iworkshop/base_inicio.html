@@ -27,7 +27,10 @@
 <footer>
         <nav class="barraInferior">
                 <div class="div-btn-barra" id="btn_home">
-                    <a href="{% url 'home' %}" class="btn-barra"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <form action="home" class="form_username" method="POST" >
+                        <input type="text" name="q" id="user-input-rut" value="{{ query|escape }}{{user.username}}" style="display: none;">
+                        <a href="{% url 'home' %}" class="btn-barra" onclick="document.getElementById('form1').submit()"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    </form>
                 </div>
         
                 <div class="div-btn-barra" id="btn_buscar">
