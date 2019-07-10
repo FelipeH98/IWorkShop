@@ -47,8 +47,9 @@ class Taller(models.Model):
 
 class TallerAlumno(models.Model):
     id_tomado = models.AutoField(primary_key=True)
+    id_user = models.CharField( max_length=40, null=True, blank=True)
     tallerTomado = models.ForeignKey( Taller , null=True, blank=True,on_delete=models.CASCADE)
     alumnoTomado = models.ForeignKey( Alumno , null=True, blank=True,on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.tallerTomado)
+        return str(self.id_user)
