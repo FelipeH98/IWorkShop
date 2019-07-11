@@ -1,0 +1,31 @@
+{% extends 'iworkshop/base_inicio.html'%}
+
+{% load static %}
+
+{% block extrastatic %}
+<link rel="stylesheet" href="{% static 'css/buscar_on.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <main class="main">
+        {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
+            EVALUACION DE PROFES
+        {% elif user.is_authenticated and user.is_staff %}
+
+            <div class="detail">
+                <h2>{{detail.taller.nombreTaller}}</h2>
+                <p id="pFecha">{{ detail.fecha }}</p>
+                <p id="pPresent"></p>
+                {% for alum in detail.alumnos.all %}
+                    <p id="pAlum">{{alum}}</p>
+                {% endfor %}
+            </div>
+           
+            <a href="{% url 'buscarAlum' %}" id="volverDetail">Volver</a>   
+           
+        {% endif %}
+
+        
+    </main>
+{% endblock %}

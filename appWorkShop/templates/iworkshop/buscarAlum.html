@@ -11,50 +11,80 @@
     <main class="main">
         {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
             EVALUACION DE PROFES
-        {% elif user.is_authenticated and user.is_staff %} 
-            FEEDBACK DE ALUMNOS
+        {% elif user.is_authenticated and user.is_staff %}
+            {% if asisProfe %}
+                {% for asis in asisProfe %}
+                    {% if user.username == asis.profesor.rutProfe %}
+                        <div class="cont-talleres">
+                                <table>
+                                    <tr>
+                                        <td style="text-align: center"><b>Taller</b></td>
+                                        <td style="text-align: center"><b>Fecha</b></td>
+                                        <td style="text-align: center"><b>Revisar asistencia</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center">{{asis.taller|escape}}</td>
+                                        <td style="text-align: center">{{asis.fecha|escape}}</td>
+                                        <td> 
+                                            <form action="detalleAsis" method="GET">
+                                                <input type="text" name="q" id="input_buscar" placeholder="Ingrese taller" value="{{asis.id_asistencia}}{{ query|escape }}" style="display:none">
+                                                <button id="btn_busqueda_asis" onclick="" type="submit">Revisar</button>
+                                            </form>
+                                        </td>
+                                    </tr>                               
+                                </table>
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p style="text-align: center; color: white; margin-top: 40px; ">No se encontró ningún taller</p>
+            {% endif %}
         {% elif user.is_authenticated %}
-            {% csrf_token %}
+           
             <div class="contenedor_busc">
-                <form action="results" method="GET" >
+                <form action="results" method="GET" >{% csrf_token %}
                         <input type="text" name="q" id="input_buscar" placeholder="Ingrese taller" value="{{ query|escape }}">
                         <button id="btn_busqueda" onclick="" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
 
             {% if talleres %}
-              {% for taller in talleres %}
-                <div class="cont-talleres">
-                    
-                    <form action="tomarTaller" method="POST">
-                        {% csrf_token %}
-                        <table>
-                            <tr>
-                                <td style="text-align: center"><b>Taller</b></td>
-                                <td style="text-align: center"><b>Dia</b></td>
-                                <td style="text-align: center"><b>Hora</b></td>
-                                <td style="text-align: center"><b>Duracion</b></td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center">{{ taller}}</td>
-                                <td style="text-align: center">{{taller.fecha}}</td>
-                                <td style="text-align: center">{{taller.hora_comienzo}}</td>
-                                <td style="text-align: center">{{taller.duracion_total}}</td>
-                            </tr>
-                            <input type="text" name="pk" id="pk" value="{{taller.idTaller}}" style="display:none;">
-                            <input type="text" name="alumno" id="alumnos" value="{{user.username}}" style="display:none;">
-                            <button type="submit"><i class="fa fa-plus" aria-hidden="true" class="btn_tomar"></i></button>
-                            
-                        </table>
-                    </form>
-                    
-                </div>
-              {% endfor %}
+
+                {% for taller in talleres %}
+
+                    <div class="cont-talleres">
+                                
+                            <form action="tomarTaller" method="POST" >
+                                {% csrf_token %}
+                                <table>
+                                    <tr>
+                                        <td style="text-align: center"><b>Taller</b></td>
+                                        <td style="text-align: center"><b>Dia</b></td>
+                                        <td style="text-align: center"><b>Hora</b></td>
+                                        <td style="text-align: center"><b>Duracion</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center">{{taller|escape}}</td>
+                                        <td style="text-align: center">{{taller.fecha|escape}}</td>
+                                        <td style="text-align: center">{{taller.hora_comienzo|escape}}</td>
+                                        <td style="text-align: center">{{taller.duracion_total|escape}}</td>
+                                    </tr>
+                                    <input type="text" name="id_user" value="{{user.username}}" style="display:none;">
+                                    <input type="text" name="tallerTomado" value="{{taller.idTaller}}" style="display:none;">
+                                    <input type="text" name="alumnoTomado" value="{{user.username}}" style="display:none;">
+                                    
+                                    
+                                </table>
+                                
+                            </form>
+                            <button  type="submit"  class="btn_tomar"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                {% endfor %}
             {% else %}
               <p style="text-align: center; color: white; margin-top: 40px; ">No se encontró ningún taller</p>
             {% endif %}
-           
-           
+
         {% endif %}
 
         

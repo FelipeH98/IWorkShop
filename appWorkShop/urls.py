@@ -9,5 +9,9 @@ urlpatterns = [
     path('results', views.results, name='results'),
     path('comm', views.comm, name='comm'),
     path('perfil', views.perfil, name='perfil'),
+    path('tomarTaller', views.tomarTaller, name='tomarTaller'),
+    path('sugerencia', views.sugerencia, name='sugerencia'),
+    path('asistencia', views.asistencia, name='asistencia'),
+    path('detalleAsis', views.detalleAsis, name='detalleAsis'),
 
 ]

@@ -11,10 +11,20 @@
     <main class="main">
         {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
             EVALUACION DE PROFES
-        {% elif user.is_authenticated and user.is_staff %} 
-            FEEDBACK DE ALUMNOS
+        {% elif user.is_authenticated and user.is_staff %}
+          <form action="" method="POST" id="formAsist">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" onclick="alert('Asistencia registrada correctamente')" >Registrar asistencia</button>
+          </form>
+           
+       
+
         {% elif user.is_authenticated %}
-            DEJAR COMENTARIO A PROFE
+            <form action="sugerencia" method="POST" id="formulario">{% csrf_token %}
+            <input type="text" name="alumnoSeg" id="alumnoSeg" value="{{user.username}}" style="display: none;">
+            <textarea type="text" name="sugerencia" id="sugerencia" placeholder="Escriba sus sugerencias con detalle"></textarea>
+            <button class="suge_btn" type="submit" onclick="alert('Sugerencia enviada correctamente')">Enviar</button>
+            </form>
         {% endif %}
     </main>
 {% endblock %}

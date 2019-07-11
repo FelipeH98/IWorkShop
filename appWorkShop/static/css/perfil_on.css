@@ -36,5 +36,8 @@
     border: solid 0.5px rgb(14, 86, 145);
     font-size: 18px;
     background-color: rgb(29, 172, 255);
-    color: white;
+}
+
+.ultima{
+    margin-bottom:30px;
 }

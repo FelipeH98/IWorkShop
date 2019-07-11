@@ -8,15 +8,16 @@
     color: white;
 }
 
-.btn_tomar{
-    display: inline-block;
-}
+
 .cont-talleres{
     width: 100%;
-    height: 80px;
-    background-color: rgb(255, 255, 255);
+    height: 65px;
+    background-color: rgba(255, 255, 255, 0);
     margin-top:7px;
     font-family: 'Open Sans', sans-serif;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    border-radius: 5px;
 }
 
 .cont-talleres p{
@@ -25,13 +26,15 @@
     font-size: 18px;
 }
 
-.cont-talleres button{
-    position: absolute;
-    left: 85%; 
-    height: 50px;
+.btn_tomar{
+    position: relative;
+    left: 88%;
+    bottom: 40px;
     border: none;
-    background-color: white;
+    background: none;
 }
+
+
 .cont-talleres button i{
     font-size: 30px;
     color: rgb(55, 189, 133);
@@ -64,3 +67,68 @@
 .main{
     padding-bottom: 55px;
 }
+
+#btn_busqueda_asis{
+    margin-left: 35px;
+    padding: 5px 15px;
+    border: solid 0.5px rgb(14, 86, 145);
+    font-size: 15px;
+    background-color: rgb(29, 172, 255);
+    color: white;
+}
+
+/* CSS PARA DETALLE DE ASISTENCIA */
+
+.detail{
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.445);
+    color: white;
+}
+
+#pFecha{
+    margin-top:0;
+    font-size: 12px;
+    margin-bottom:0;
+    background-color: rgb(39, 47, 87);
+}
+
+#pPresent{
+    background-color: rgb(39, 47, 87);
+    font-size: 25px; 
+    margin-top:0;
+    margin-bottom:0;
+    padding: 1px;
+}
+
+#pAlum{
+    margin-top:0;
+    margin-bottom:0;
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.445);
+}
+
+.detail h2{
+    margin-top:0;
+    margin-bottom:0;
+    background-color: rgb(39, 47, 87);
+}
+
+#volverDetail{
+    display: block;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    width: 50px;
+    padding: 5px 15px;
+    border: solid 0.5px rgb(14, 86, 145);
+    font-size: 15px;
+    background-color: rgb(29, 172, 255);
+    color: white;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* FIN CSS PARA DETALLE DE ASISTENCIA */

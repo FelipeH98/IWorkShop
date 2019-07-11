@@ -15,9 +15,6 @@
 </head>
 <body>
 
-    
-
-
 </body>
 
 {% block content %}
@@ -34,12 +31,22 @@
                 </div>
         
                 <div class="div-btn-barra" id="btn_buscar">
-                    <a href="{% url 'buscarAlum' %}" class="btn-barra"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    <form action="home" class="form_username" method="POST" >
+                        <input type="text" name="q" id="user-input-rut" value="{{ query|escape }}{{user.username}}" style="display: none;">
+                        <a href="{% url 'buscarAlum' %}" class="btn-barra" onclick="document.getElementById('form1').submit()"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </form>
                 </div>
+
+                {% if user.is_authenticated and user.is_staff %}
+                    <div class="div-btn-barra" id="btn_comm">
+                        <a href="{% url 'asistencia' %}" class="btn-barra"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                    </div>
+                {% else %}
         
-                <div class="div-btn-barra" id="btn_comm">
-                    <a href="{% url 'comm' %}" class="btn-barra"><i class="fa fa-comment" aria-hidden="true"></i></a>
-                </div>
+                    <div class="div-btn-barra" id="btn_comm">
+                        <a href="{% url 'comm' %}" class="btn-barra"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                    </div>
+                {% endif %}
         
                 <div class="div-btn-barra" id="btn_perfil">
                     <a href="{% url 'perfil' %}" class="btn-barra"><i class="fa fa-user" aria-hidden="true"></i></a>

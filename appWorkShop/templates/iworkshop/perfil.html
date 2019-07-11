@@ -15,11 +15,16 @@
         {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
             PERFIL ADMIN
         {% elif user.is_authenticated and user.is_staff %} 
-            {% for perfil in user_profe %}
-                {% if user.username == perfil.rut %}
+            {% for perfilPro in user_profe %}
+                {% if perfilPro.rutProfe == user.username %}
                     <div class="datos-perfil">
-                        <p>Rut: {{user.username}}</p>
-                        <p>Nombre: {{perfil.nombreProfe}}</p>
+                        <h2>Mi perfil</h2>
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <p>Tipo de usuario: Profesor </p>
+                        <p>Rut: {{perfilPro.rutProfe}}</p>
+                        <p>Nombre: {{perfilPro.nombreProfe}}</p>
+                        <p class="ultima">Apellido: {{perfilPro.apellidoProfe}}</p>
+                        <a class="logout" href="{% url 'logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                     </div>
                 {% endif %}
             {% endfor%}
@@ -31,10 +36,11 @@
                     <div class="datos-perfil">
                         <h2>Mi perfil</h2>
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <p>Tipo de usuario: Alumno </p>
                         <p>Rut: {{user.username}}</p>
                         <p>Nombre: {{perfil.nombreCompleto}}</p>
                         <p>Colegio: {{perfil.colegio}}</p>
-                        <p>Edad: {{perfil.edad}}</p>
+                        <p class="ultima">Edad: {{perfil.edad}}</p>
                         <a class="logout" href="{% url 'logout' %}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                     </div>
                 {% endif %}

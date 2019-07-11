@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
-
-
 body{
     background-color: rgb(51, 60, 107);
 }
@@ -22,10 +20,11 @@ body{
     text-align: center;
     padding: 7px 0 7px 0;
     display: inline-block;
+    height: 100%;
 }
 
 .btn-barra{
-    font-size: 35px;
+    font-size: 25px;
     color: rgb(144, 155, 223);
 }
 
@@ -41,10 +40,11 @@ body{
 /* DISEÑO PARA DIV CALENDARIO DE TALLERES EN DIA DE LA SEMANA */
 
 .cont-calendario{
-    background-color: rgba(255, 255, 255, 0.096);
+    background-color: rgba(255, 255, 255, 0);
     width: 100%;
     display: block;
     margin: 0 auto 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.26);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-family: 'Open Sans', sans-serif;
@@ -58,10 +58,15 @@ body{
     text-align: center;
     font-size: 16px;
     color: white;
+    margin-top: 0;
 }
 .cont-dia{
     margin: 0 0 5px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.322);
+}
+
+#talleresViernes{
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 
 .talleres-box table{

@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 DIAS_SEMANA = ( 
     ('Lunes', 'Lunes'),
     ('Martes', 'Martes'),
@@ -22,7 +22,7 @@ class Alumno(models.Model):
     edad = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.rut)
+        return str(self.rut+"|"+self.nombreCompleto)
 
 class Profesor(models.Model):
     rutProfe = models.CharField(max_length=10, primary_key=True)
@@ -35,9 +35,6 @@ class Profesor(models.Model):
 class Taller(models.Model):
     idTaller = models.AutoField(primary_key=True)
     nombreTaller = models.CharField(max_length=40)
-    alumno = models.ManyToManyField( Alumno , null=True, blank=True)
-    profesor = models.ManyToManyField( Profesor, null=True, blank=True)
-    colegio = models.ManyToManyField( Colegio , null=True, blank=True )
     fecha = models.CharField(max_length=12, choices=DIAS_SEMANA, default="Lunes")
     hora_comienzo = models.TimeField (null=True, blank=True)
     duracion_total= models.CharField( max_length=40, null=True, blank=True)
@@ -46,10 +43,46 @@ class Taller(models.Model):
         return str(self.nombreTaller)
 
 class TallerAlumno(models.Model):
-    id_tomado = models.AutoField(primary_key=True)
+    id_TA = models.AutoField(primary_key=True)
     id_user = models.CharField( max_length=40, null=True, blank=True)
     tallerTomado = models.ForeignKey( Taller , null=True, blank=True,on_delete=models.CASCADE)
     alumnoTomado = models.ForeignKey( Alumno , null=True, blank=True,on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.id_user)
+
+class TallerProfesor(models.Model):
+    id_TP = models.AutoField(primary_key=True)
+    id_user = models.CharField( max_length=40, null=True, blank=True)
+    tallerTomado = models.ForeignKey( Taller , null=True, blank=True,on_delete=models.CASCADE)
+    profesorTomado = models.ForeignKey( Profesor , null=True, blank=True,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.id_user)
+
+class TallerColegio(models.Model):
+    id_TC = models.AutoField(primary_key=True)
+    id_user = models.CharField( max_length=40, null=True, blank=True)
+    tallerTomado = models.ForeignKey( Taller , null=True, blank=True,on_delete=models.CASCADE)
+    colegioTomado = models.ForeignKey( Colegio , null=True, blank=True,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.id_user)
+
+class Sugerencias(models.Model):
+    id_sugerencia = models.AutoField(primary_key=True)
+    alumnoSeg = models.ForeignKey( Alumno , null=True, blank=True,on_delete=models.CASCADE)
+    sugerencia = models.TextField(blank=True)
+
+    def __str__(self):  
+        return str(self.alumnoSeg)
+
+class Asistencia(models.Model):
+    id_asistencia = models.AutoField(primary_key=True)
+    alumnos = models.ManyToManyField(Alumno)
+    profesor = models.ForeignKey( Profesor , null=True, blank=True,on_delete=models.CASCADE)
+    taller = models.ForeignKey( Taller , null=True, blank=True,on_delete=models.CASCADE)
+    fecha = models.DateField(default = datetime.now, blank = True)
+
+    def __str__(self):
+        return str(self.taller)

@@ -13,7 +13,180 @@
         {% if user.is_authenticated and user.is_staff and user.is_superuser %} 
             HOME ADMIN
         {% elif user.is_authenticated and user.is_staff %} 
-            HOME PROFE
+            {% if talleresProfe %}
+                <div class="cont-calendario">
+                    <h2 class="calendar-titutlo">Calendario</h2>
+
+                    <div class="lunes cont-dia" id="talleresLunes">
+                        <table>
+                            <tr>
+                                <td> 
+                                    <div class="dia-box">
+                                        <p class="dia-titutlo"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Lunes</p>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="talleres-box">
+                                        <table>
+                                            <tr>
+                                                <td style="text-align: center"><b>Nombre</b></td>
+                                                <td style="text-align: center"><b>Dia</b></td>
+                                                <td style="text-align: center"><b>Hora</b></td>
+                                            </tr>
+                                            {% for taller in talleresProfe %}    
+                                                {% if taller.tallerTomado.fecha == "Lunes" %}
+                                                    <tr>
+                                                        <td>{{ taller.tallerTomado}}</td>
+                                                        <td>{{ taller.tallerTomado.fecha}}</td>
+                                                        <td>{{ taller.tallerTomado.hora_comienzo}}</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                    <div class="martes cont-dia" id="talleresMartes">
+                        <table>
+                            <tr>
+                                <td> 
+                                    <div class="dia-box">
+                                        <p class="dia-titutlo"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Martes</p>
+                                    </div>
+                                </td>
+            
+                                <td>
+                                    <div class="talleres-box">
+                                        <table>
+                                            <tr>
+                                                <td style="text-align: center"><b>Nombre</b></td>
+                                                <td style="text-align: center"><b>Dia</b></td>
+                                                <td style="text-align: center"><b>Hora</b></td>
+                                            </tr>   
+                                            {% for taller in talleresProfe %}    
+                                                {% if taller.tallerTomado.fecha == "Martes" %}
+                                                    <tr>
+                                                        <td>{{ taller.tallerTomado}}</td>
+                                                        <td>{{ taller.tallerTomado.fecha}}</td>
+                                                        <td>{{ taller.tallerTomado.hora_comienzo}}</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                    <div class="miercoles cont-dia" id="talleresMiercoles">
+                        <table>
+                            <tr>
+                                <td> 
+                                    <div class="dia-box">
+                                        <p class="dia-titutlo"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Miercoles</p>
+                                    </div>
+                                </td>
+                
+                                <td>
+                                    <div class="talleres-box">
+                                        <table>
+                                            <tr>
+                                                <td style="text-align: center"><b>Nombre</b></td>
+                                                <td style="text-align: center"><b>Dia</b></td>
+                                                <td style="text-align: center"><b>Hora</b></td>
+                                            </tr>
+                                            {% for taller in talleresProfe %}    
+                                                {% if taller.tallerTomado.fecha == "Miercoles" %}
+                                                    <tr>
+                                                        <td>{{ taller.tallerTomado}}</td>
+                                                        <td>{{ taller.tallerTomado.fecha}}</td>
+                                                        <td>{{ taller.tallerTomado.hora_comienzo}}</td>
+                                                    </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                    <div class="jueves cont-dia" id="talleresJueves">
+                        <table>
+                            <tr>
+                                <td> 
+                                    <div class="dia-box">
+                                        <p class="dia-titutlo"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Jueves</p>
+                                    </div>
+                                </td>
+                    
+                                <td>
+                                    <div class="talleres-box">
+                                            <table>
+                                                <tr>
+                                                    <td style="text-align: center"><b>Nombre</b></td>
+                                                    <td style="text-align: center"><b>Dia</b></td>
+                                                    <td style="text-align: center"><b>Hora</b></td>
+                                                </tr>
+                                                {% for taller in talleresProfe %}    
+                                                    {% if taller.tallerTomado.fecha == "Jueves" %}
+                                                        
+                                                        <tr>
+                                                            <td>{{ taller.tallerTomado}}</td>
+                                                            <td>{{ taller.tallerTomado.fecha}}</td>
+                                                            <td>{{ taller.tallerTomado.hora_comienzo}}</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                    <div class="viernes cont-dia" id="talleresViernes">
+                        <table>
+                            <tr>
+                                <td> 
+                                    <div class="dia-box">
+                                        <p class="dia-titutlo"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Viernes</p>
+                                    </div>
+                                </td>
+                        
+                                <td >
+                                    <div class="talleres-box">
+                                            <table>
+                                                <tr>
+                                                    <td style="text-align: center"><b>Nombre</b></td>
+                                                    <td style="text-align: center"><b>Dia</b></td>
+                                                    <td style="text-align: center;"><b>Hora</b></td>
+                                                </tr> 
+                                                {% for taller in talleresProfe %} 
+                                                    {% if taller.tallerTomado.fecha == "Viernes" %}
+                                                        <tr >
+                                                            <td>{{ taller.tallerTomado}}</td>
+                                                            <td>{{ taller.tallerTomado.fecha}}</td>
+                                                            <td>{{ taller.tallerTomado.hora_comienzo}}</td>
+                                                        </tr>
+                                                        {% endif %}
+                                                {% endfor %}
+                                            </table> 
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            {% else %}
+                <p class="noTaller">No has tomado ningún taller aun</p> 
+            {% endif %}
+            
         {% elif user.is_authenticated %}
             {% if talleres %}
                 <div class="cont-calendario">
@@ -37,11 +210,11 @@
                                                 <td style="text-align: center"><b>Hora</b></td>
                                             </tr>
                                             {% for taller in talleres %}    
-                                                {% if taller.fecha == "Lunes" %}
+                                                {% if taller.tallerTomado.fecha == "Lunes" %}
                                                     <tr>
-                                                        <td>{{ taller.nombreTaller}}</td>
-                                                        <td>{{ taller.fecha}}</td>
-                                                        <td>{{ taller.hora_comienzo}}</td>
+                                                        <td>{{ taller.tallerTomado}}</td>
+                                                        <td>{{ taller.tallerTomado.fecha}}</td>
+                                                        <td>{{ taller.tallerTomado.hora_comienzo}}</td>
                                                     </tr>
                                                 {% endif %}
                                             {% endfor %}
@@ -70,11 +243,11 @@
                                                 <td style="text-align: center"><b>Hora</b></td>
                                             </tr>   
                                             {% for taller in talleres %}    
-                                                {% if taller.fecha == "Martes" %}
+                                                {% if taller.tallerTomado.fecha == "Martes" %}
                                                     <tr>
-                                                        <td>{{ taller.nombreTaller}}</td>
-                                                        <td>{{ taller.fecha}}</td>
-                                                        <td>{{ taller.hora_comienzo}}</td>
+                                                        <td>{{ taller.tallerTomado}}</td>
+                                                        <td>{{ taller.tallerTomado.fecha}}</td>
+                                                        <td>{{ taller.tallerTomado.hora_comienzo}}</td>
                                                     </tr>
                                                 {% endif %}
                                             {% endfor %}
@@ -103,11 +276,11 @@
                                                 <td style="text-align: center"><b>Hora</b></td>
                                             </tr>
                                             {% for taller in talleres %}    
-                                                {% if taller.fecha == "Miercoles" %}
+                                                {% if taller.tallerTomado.fecha == "Miercoles" %}
                                                     <tr>
-                                                        <td>{{ taller.nombreTaller}}</td>
-                                                        <td>{{ taller.fecha}}</td>
-                                                        <td>{{ taller.hora_comienzo}}</td>
+                                                        <td>{{ taller.tallerTomado}}</td>
+                                                        <td>{{ taller.tallerTomado.fecha}}</td>
+                                                        <td>{{ taller.tallerTomado.hora_comienzo}}</td>
                                                     </tr>
                                                 {% endif %}
                                             {% endfor %}
@@ -136,12 +309,12 @@
                                                     <td style="text-align: center"><b>Hora</b></td>
                                                 </tr>
                                                 {% for taller in talleres %}    
-                                                    {% if taller.fecha == "Jueves" %}
+                                                    {% if taller.tallerTomado.fecha == "Jueves" %}
                                                         
                                                         <tr>
-                                                            <td>{{ taller.nombreTaller}}</td>
-                                                            <td>{{ taller.fecha}}</td>
-                                                            <td>{{ taller.hora_comienzo}}</td>
+                                                            <td>{{ taller.tallerTomado}}</td>
+                                                            <td>{{ taller.tallerTomado.fecha}}</td>
+                                                            <td>{{ taller.tallerTomado.hora_comienzo}}</td>
                                                         </tr>
                                                     {% endif %}
                                                 {% endfor %}
@@ -170,15 +343,12 @@
                                                     <td style="text-align: center;"><b>Hora</b></td>
                                                 </tr> 
                                                 {% for taller in talleres %} 
-                                                        {% if taller.fecha == "Viernes" %}
-                                                            
-                                                                
-                                                                <tr >
-                                                                    <td>{{ taller.nombreTaller}}</td>
-                                                                    <td>{{ taller.fecha}}</td>
-                                                                    <td>{{taller.hora_comienzo}}</td>
-                                                                </tr>
-                                                            
+                                                    {% if taller.tallerTomado.fecha == "Viernes" %}
+                                                        <tr >
+                                                            <td>{{ taller.tallerTomado}}</td>
+                                                            <td>{{ taller.tallerTomado.fecha}}</td>
+                                                            <td>{{ taller.tallerTomado.hora_comienzo}}</td>
+                                                        </tr>
                                                         {% endif %}
                                                 {% endfor %}
                                             </table> 
